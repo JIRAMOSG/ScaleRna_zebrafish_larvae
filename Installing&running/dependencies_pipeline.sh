@@ -1,8 +1,10 @@
+# To fix Working directory, TMUX session and ask an interactive job
 cd /well/ludwig/users/lay823/larvae_nsc
 tmux new -s larvae_nsc
 conda deactivate
-#srun -p short --nodes=2 --ntasks-per-node=1 --cpus-per-task=4  --mem=150G --time=24:00:00 --pty /bin/bash -i
-#srun -p short --nodes=2 --ntasks-per-node=1 --cpus-per-task=4  --mem=300G --time=24:00:00 --pty /bin/bash -i
+#srun -p short --nodes=2 --ntasks-per-node=1 --cpus-per-task=8  --mem=150G --time=24:00:00 --pty /bin/bash -i
+#srun -p short --nodes=2 --ntasks-per-node=1 --cpus-per-task=8  --mem=300G --time=24:00:00 --pty /bin/bash -i
+# squeue -u lay823
 
 # Clone github
 git clone https://github.com/ScaleBio/ScaleRna.git
@@ -24,10 +26,19 @@ conda deactivate
 
 #TEST
 module load Nextflow/24.04.2
+
+conda env create --prefix /gpfs3/well/ludwig/users/lay823/larvae_nsc/work/conda/scaleRna-2f8afb7e6816aca4f419a1295c4a6ccc --file /well/ludwig/users/lay823/larvae_nsc/ScaleRna/envs/scalerna.conda.yml
+conda activate /gpfs3/well/ludwig/users/lay823/larvae_nsc/work/conda/scaleRna-2f8afb7e6816aca4f419a1295c4a6ccc 
+
 nextflow run /well/ludwig/users/lay823/larvae_nsc/ScaleRna/ \
   -profile conda -params-file /well/ludwig/users/lay823/larvae_nsc/ScaleRna/docs/examples/runParams.yml \
   --genome /well/ludwig/users/lay823/larvae_nsc/test_inst/GRCh38_chr20_genome/genome.json \
   --fastqDir /well/ludwig/users/lay823/larvae_nsc/test_inst/fastq \
   --outDir /well/ludwig/users/lay823/larvae_nsc/test_inst/output
 
-  conda env create --prefix /gpfs3/well/ludwig/users/lay823/larvae_nsc/work/conda/scaleRna-2f8afb7e6816aca4f419a1295c4a6ccc --file /well/ludwig/users/lay823/larvae_nsc/ScaleRna/envs/scalerna.conda.yml
+
+
+
+
+
+  
