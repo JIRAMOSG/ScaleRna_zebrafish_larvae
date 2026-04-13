@@ -1,11 +1,14 @@
 # To fix Working directory, TMUX session and ask an interactive job
 cd /well/ludwig/users/lay823/larvae_nsc
-tmux new -s larvae_nsc
+tmux new -s larvae_nsc #create session
+tmux attach -t larvae_nsc #log-in to the session
+
 conda deactivate
-#srun -p short --nodes=2 --ntasks-per-node=1 --cpus-per-task=8  --mem=150G --time=24:00:00 --pty /bin/bash -i
-#srun -p short --nodes=2 --ntasks-per-node=1 --cpus-per-task=8  --mem=300G --time=24:00:00 --pty /bin/bash -i
+# srun -p short --nodes=2 --ntasks-per-node=1 --cpus-per-task=8  --mem=150G --time=24:00:00 --pty /bin/bash -i
+# srun -p short --nodes=2 --ntasks-per-node=1 --cpus-per-task=8  --mem=300G --time=24:00:00 --pty /bin/bash -i
 # squeue -u lay823
-# srun -p short --nodes=1 --ntasks-per-node=1 --cpus-per-task=12  --mem=100G --time=24:00:00 --pty /bin/bash -i y java 11
+# srun -p short --nodes=1 --ntasks-per-node=1 --cpus-per-task=12  --mem=100G --time=24:00:00 --pty /bin/bash -i 
+
 # Clone github
 git clone https://github.com/ScaleBio/ScaleRna.git
 
@@ -26,6 +29,7 @@ conda deactivate
 
 #TEST
 module load Nextflow/24.04.2
+module load Java/11.0.20
 
 conda env create --prefix /gpfs3/well/ludwig/users/lay823/larvae_nsc/work/conda/scaleRna-2f8afb7e6816aca4f419a1295c4a6ccc --file /well/ludwig/users/lay823/larvae_nsc/ScaleRna/envs/scalerna.conda.yml
 conda activate /gpfs3/well/ludwig/users/lay823/larvae_nsc/work/conda/scaleRna-2f8afb7e6816aca4f419a1295c4a6ccc 
