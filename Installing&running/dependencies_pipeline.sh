@@ -9,14 +9,10 @@ conda deactivate
 # squeue -u lay823
 # srun -p short --nodes=1 --ntasks-per-node=1 --cpus-per-task=12  --mem=100G --time=24:00:00 --pty /bin/bash -i 
 
+srun -p short --nodes=1 --ntasks-per-node=1 --cpus-per-task=6  --mem=60G --time=24:00:00 --pty /bin/bash -i 
+
 # Clone github
 git clone https://github.com/ScaleBio/ScaleRna.git
-
-# Install dependecies and create enviroment
-module load Miniforge3
-conda create -n scalplex 
-conda activate scalplex
-bash /PATH/TO/ScaleRNA/envs/download-scale-tools.sh
 
 
 # Downloading test run data
@@ -28,19 +24,18 @@ aws s3 sync s3://scale.pub/testData/rna/202506_quantumV1/fastq fastq --no-sign-r
 conda deactivate
 
 #TEST
+srun -p short --nodes=2 --ntasks-per-node=1 --cpus-per-task=8  --mem=150G --time=24:00:00 --pty /bin/bash -i
 module load Nextflow/24.04.2
 module load Java/11.0.20
 
-conda env create --prefix /gpfs3/well/ludwig/users/lay823/larvae_nsc/work/conda/scaleRna-2f8afb7e6816aca4f419a1295c4a6ccc --file /well/ludwig/users/lay823/larvae_nsc/ScaleRna/envs/scalerna.conda.yml
-conda activate /gpfs3/well/ludwig/users/lay823/larvae_nsc/work/conda/scaleRna-2f8afb7e6816aca4f419a1295c4a6ccc 
-
 nextflow run /well/ludwig/users/lay823/larvae_nsc/ScaleRna/ \
-  -profile conda -params-file /well/ludwig/users/lay823/larvae_nsc/ScaleRna/docs/examples/runParams.yml \
+  -profile singularity -params-file /well/ludwig/users/lay823/larvae_nsc/ScaleRna/docs/examples/runParams.yml \
   --genome /well/ludwig/users/lay823/larvae_nsc/test_inst/GRCh38_chr20_genome/genome.json \
   --fastqDir /well/ludwig/users/lay823/larvae_nsc/test_inst/fastq \
   --outDir /well/ludwig/users/lay823/larvae_nsc/test_inst/output
 
-
+#Pulling Singularity image docker://public.ecr.aws/o5l3p3e4/scalerna:2025-04-16-160428 [cache /gpfs3/well/ludwig/users/lay823/larvae_nsc/ScaleRna/work/singularity/public.ecr.aws-o5l3p3e4-scalerna-2025-04-16-160428.img]
+#WARN: Singularity cache directory has not been defined -- Remote image will be stored in the path: /gpfs3/well/ludwig/users/lay823/larvae_nsc/ScaleRna/work/singularity -- Use the environment variable NXF_SINGULARITY_CACHEDIR to specify a different location
 
 
 
