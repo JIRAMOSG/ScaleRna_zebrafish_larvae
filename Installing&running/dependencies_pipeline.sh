@@ -34,5 +34,8 @@ nextflow run /well/ludwig/users/lay823/larvae_nsc/ScaleRna/ \
 
 
 
-
-  
+# Debug cache
+mkdir -p /gpfs3/well/ludwig/users/lay823/larvae_nsc/ScaleRna/work/singularity-cache
+export NXF_SINGULARITY_CACHEDIR=/gpfs3/well/ludwig/users/lay823/larvae_nsc/ScaleRna/work/singularity-cache
+export APPTAINER_CACHEDIR=$NXF_SINGULARITY_CACHEDIR
+export SINGULARITY_CACHEDIR=$NXF_SINGULARITY_CACHEDIR
