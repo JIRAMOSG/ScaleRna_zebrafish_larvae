@@ -20,3 +20,4 @@ nextflow run /well/ludwig/users/lay823/larvae_nsc/ScaleRna \
 
 
 # sbatch scaleplex.sh
+# https://scalebio.github.io/ScaleRna-docs/scaleplex-outputs/
