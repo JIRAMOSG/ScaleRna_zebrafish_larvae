@@ -8,7 +8,7 @@ conda deactivate
 # srun -p short --nodes=2 --ntasks-per-node=1 --cpus-per-task=8  --mem=300G --time=24:00:00 --pty /bin/bash -i
 # squeue -u lay823
 # srun -p short --nodes=1 --ntasks-per-node=1 --cpus-per-task=12  --mem=100G --time=24:00:00 --pty /bin/bash -i 
-
+# the pipeline ask for 16 cpus 
 
 # Clone github
 git clone https://github.com/ScaleBio/ScaleRna.git
