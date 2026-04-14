@@ -1,4 +1,4 @@
-# To fix Working directory, TMUX session and ask an interactive job
+# To fix Working directory, TMUX session and ask an interactive job  #https://scalebio.github.io/ScaleRna-docs/requirements/
 cd /well/ludwig/users/lay823/larvae_nsc
 tmux new -s larvae_nsc #create session
 tmux attach -t larvae_nsc #log-in to the session
