@@ -1,5 +1,13 @@
-
-
+#!/bin/bash
+#SBATCH --job-name=scaleplex
+#SBATCH --output=job.%j.out
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=18
+#SBATCH --mem=200G
+#SBATCH --time=40:00:00
+cd /well/ludwig/users/lay823/larvae_nsc
+module load Nextflow/24.04.2
+module load Java/11.0.20
 
 nextflow run ScaleBio/ScaleRna \
     --runFolder /well/ludwig/users/lay823/larvae_nsc/data/bcl/260327_LH00452_0387_B23JH7HLT3 \
