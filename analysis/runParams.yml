@@ -1,0 +1,21 @@
+##### Required Analysis Parameters
+# See "nextflow.config" for all options and defaults
+
+### If analyzing a ScalePlex dataset
+scalePlex: true
+
+##### Inputs
+### Sequencing data input can be either a Illumina sequencer RunFolder (bcl)
+runFolder : "/well/ludwig/users/lay823/larvae_nsc/data/bcl/260327_LH00452_0387_B23JH7HLT3/"
+### or a directory with fastq files
+# fastqDir : 
+
+### A file listing all samples in the analysis with their RT barcodes
+samples : "/well/ludwig/users/lay823/larvae_nsc/data/samples.csv"
+
+#### Reference information
+### Version of the Scale Single Cell RNA assay used: "libV1.json", "libV1.1.json", or "libQuantumV1.0.json"
+libStructure : libQuantumV1.0.json
+
+### Path to a .json file defining the reference genome, for the test dataset this is only chromosome 20.
+genome : "/well/ludwig/users/lay823/larvae_nsc/reference/genome.json"
