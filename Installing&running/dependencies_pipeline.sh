@@ -50,4 +50,4 @@ export APPTAINER_TMPDIR=/gpfs3/well/ludwig/users/lay823/.apptainer/tmp
  - resume 
  echo $APPTAINER_CACHEDIR
 # tes2 
-nextflow run /well/ludwig/users/lay823/larvae_nsc/ScaleRna -profile singularity -params-file /well/ludwig/users/lay823/larvae_nsc/ScaleRna/docs/examples/runParams.yml --outDir test
+ nextflow run /well/ludwig/users/lay823/larvae_nsc/ScaleRna/   -profile singularity -params-file /well/ludwig/users/lay823/larvae_nsc/ScaleRna/docs/examples/runParams.yml   --genome /well/ludwig/users/lay823/larvae_nsc/test_inst/GRCh38_chr20_genome/genome.json   --fastqDir /well/ludwig/users/lay823/larvae_nsc/test_inst/fastq/   --outDir /well/ludwig/users/lay823/larvae_nsc/test_inst/output -resume
