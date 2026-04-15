@@ -1,11 +1,13 @@
 #!/bin/bash
+#SBATCH -A ludwig.prj 
 #SBATCH --job-name=scaleplex
-#SBATCH --output=job.%j.out
+#SBATCH -o job.%j.out 
+#SBATCH -e job.%j.err 
+#SBATCH -p long
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=20
-#SBATCH --mem=250G
-#SBATCH --time=50:00:00
+#SBATCH --mem=150G
 cd /well/ludwig/users/lay823/larvae_nsc
 module load Nextflow/24.04.2
 module load Java/11.0.20
@@ -17,3 +19,12 @@ nextflow run /well/ludwig/users/lay823/larvae_nsc/ScaleRna \
     --genome  /well/ludwig/users/lay823/larvae_nsc/reference/genome.json \
     --params-file /well/ludwig/users/lay823/larvae_nsc/ScaleRna/docs/examples/runParams.yml \
     --outDir results
+
+### no correr asi en job. usar .config to edit el executor
+
+process {
+    executor = 'slurm'
+    cpus = 20
+    queue = 'long'
+    clusterOptions = '-t 32:00:00 -p long'
+}
