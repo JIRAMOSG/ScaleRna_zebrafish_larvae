@@ -19,7 +19,7 @@ nextflow run /well/ludwig/users/lay823/larvae_nsc/ScaleRna \
     --samples /well/ludwig/users/lay823/larvae_nsc/data/samples.csv \
     --genome  /well/ludwig/users/lay823/larvae_nsc/reference/genome.json \
     --params-file /well/ludwig/users/lay823/larvae_nsc/ScaleRna/docs/examples/runParams.yml \
-    --outDir results
+    --outDir results_master
 
 
 # sbatch scaleplex.sh
