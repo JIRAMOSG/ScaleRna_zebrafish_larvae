@@ -7,7 +7,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=20
-#SBATCH --mem=250G
+#SBATCH --mem=150G
 
 cd /well/ludwig/users/lay823/larvae_nsc
 module load Nextflow/24.04.2
