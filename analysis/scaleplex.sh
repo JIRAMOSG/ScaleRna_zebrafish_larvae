@@ -1,11 +1,14 @@
 #!/bin/bash
+#SBATCH -A ludwig.prj 
 #SBATCH --job-name=scaleplex
-#SBATCH --output=job.%j.out
+#SBATCH -o job.%j.out 
+#SBATCH -e job.%j.err 
+#SBATCH -p long
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=20
 #SBATCH --mem=250G
-#SBATCH --time=50:00:00
+
 cd /well/ludwig/users/lay823/larvae_nsc
 module load Nextflow/24.04.2
 module load Java/11.0.20
