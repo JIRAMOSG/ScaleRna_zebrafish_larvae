@@ -40,7 +40,14 @@ export NXF_SINGULARITY_CACHEDIR=/gpfs3/well/ludwig/users/lay823/larvae_nsc/Scale
 export APPTAINER_CACHEDIR=$NXF_SINGULARITY_CACHEDIR
 export SINGULARITY_CACHEDIR=$NXF_SINGULARITY_CACHEDIR
 
-
-
+# alternative 
+mkdir -p /gpfs3/well/ludwig/users/lay823/.apptainer/cache
+mkdir -p /gpfs3/well/ludwig/users/lay823/.apptainer/tmp
+export NXF_SINGULARITY_CACHEDIR=/gpfs3/well/ludwig/users/lay823/.apptainer/cache
+export APPTAINER_CACHEDIR=$NXF_SINGULARITY_CACHEDIR
+export SINGULARITY_CACHEDIR=$NXF_SINGULARITY_CACHEDIR
+export APPTAINER_TMPDIR=/gpfs3/well/ludwig/users/lay823/.apptainer/tmp
+ - resume 
+ echo $APPTAINER_CACHEDIR
 # tes2 
 nextflow run /well/ludwig/users/lay823/larvae_nsc/ScaleRna -profile singularity -params-file /well/ludwig/users/lay823/larvae_nsc/ScaleRna/docs/examples/runParams.yml --outDir test
