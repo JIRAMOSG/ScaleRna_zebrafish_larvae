@@ -18,9 +18,7 @@ nextflow run /well/ludwig/users/lay823/larvae_nsc/ScaleRna \
     --profile singularity \
     --samples /well/ludwig/users/lay823/larvae_nsc/data/samples.csv \
     --genome  /well/ludwig/users/lay823/larvae_nsc/reference/genome.json \
-    --params-file /well/ludwig/users/lay823/larvae_nsc/ScaleRna/docs/examples/runParams.yml \
-    --outDir results_master
-
-
+    --params-file /well/ludwig/users/lay823/larvae_nsc/data/runParams.yml \
+    --outDir results
 # sbatch scaleplex.sh
 # https://scalebio.github.io/ScaleRna-docs/scaleplex-outputs/
