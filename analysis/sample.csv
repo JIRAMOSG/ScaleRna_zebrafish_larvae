@@ -1,17 +1,17 @@
 sample,barcodes
-light_1 ,1A
-light_2,1B
-light_3,1C
-light_4,1D
-light_5,1E
-light_6,1F
-light_7,1G
-light_8,1H
-dark_1,2A
-dark_2,2B
-dark_3,2C
-dark_4,2D
-dark_5,2E
-dark_6,2F
-dark_7,2G
-dark_8,2H
+light-1 ,1A
+light-2,1B
+light-3,1C
+light-4,1D
+light-5,1E
+light-6,1F
+light-7,1G
+light-8,1H
+dark-1,2A
+dark-2,2B
+dark-3,2C
+dark-4,2D
+dark-5,2E
+dark-6,2F
+dark-7,2G
+dark-8,2H
