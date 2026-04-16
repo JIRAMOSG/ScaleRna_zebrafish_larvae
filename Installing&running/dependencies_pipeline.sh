@@ -31,7 +31,18 @@ nextflow run /well/ludwig/users/lay823/larvae_nsc/ScaleRna/   \
 #-resume
 
 
+#TEST
+module load Nextflow/24.04.2
+module load Java/11.0.20
 
+nextflow run /well/ludwig/users/lay823/larvae_nsc/ScaleRna/   \
+-profile singularity \
+-params-file /well/ludwig/users/lay823/larvae_nsc/ScaleRna/docs/examples/runParams.yml  \
+--genome /well/ludwig/users/lay823/larvae_nsc/test_inst/GRCh38_chr20_genome/genome.json   \
+--fastqDir /well/ludwig/users/lay823/larvae_nsc/test_inst/fastq/   \
+--scalePlex true \
+--outDir /well/ludwig/users/lay823/larvae_nsc/test_inst/output 
+-resume 
 
 
 # Debug cache
@@ -44,4 +55,6 @@ export APPTAINER_TMPDIR=/gpfs3/well/ludwig/users/lay823/.apptainer/tmp
  - resume 
  echo $APPTAINER_CACHEDIR
 # tes2 
+# I think you have to run this a load python 3 every time?
+NXF_SINGULARITY_CACHEDIR
  
